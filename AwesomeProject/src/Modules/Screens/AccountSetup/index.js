@@ -32,6 +32,7 @@ import GlobalStyles from '../../../CSS/GlobalStyles';
 import GLOBAL_DATA from '../../../Data/DataFile';
 import HandleBack from '../../../SharedComponents/HandleBack';
 import ContinueButton from '../../../SharedComponents/ContinueButton';
+import Logo from '../../../../Assets/logo.svg';
 
 const pattern = /[a-zA-Z0-9\.\-]{2,256}\@[a-zA-Z][a-zA-Z]{2,64}/;
 
@@ -152,8 +153,21 @@ export default class AccountSetup extends React.Component {
               <View style={styles.inputCont}>
                 <View
                   style={{
+                    width: 100,
+                    height: 100,
+                    borderRadius: 50,
+                    backgroundColor: GlobalStyles.bg_color,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginVertical: '2.5%',
+                  }}
+                >
+                  <Logo width="75%" height="75%" />
+                </View>
+                <View
+                  style={{
                     width: '92.5%',
-                    height: '15%',
+                    height: '12.5%',
                   }}
                 >
                   <Text
@@ -291,7 +305,6 @@ const styles = StyleSheet.create({
     shadowColor: GlobalStyles.color_black,
     alignItems: 'center',
     height: '90%',
-    paddingTop: '25%',
     justifyContent: 'space-evenly',
     alignSelf: 'center',
   },
@@ -304,6 +317,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     marginTop: 6,
     alignItems: 'center',
+    height: 50,
   },
   numTextInputStyle2: {
     width: '100%',
@@ -339,13 +353,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputTextCont: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 5,
     borderColor: GlobalStyles.border_color,
     width: '100%',
+    height: 50,
 },
   bottomContainer: {
     width: '100%',
