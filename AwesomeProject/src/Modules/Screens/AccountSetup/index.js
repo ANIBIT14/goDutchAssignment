@@ -127,7 +127,6 @@ export default class AccountSetup extends React.Component {
             <StatusBar barStyle="dark-content" backgroundColor={GlobalStyles.bg_color} animated />
           </View>
         ) : null }
-          <KeyboardAvoidingView keyboardVerticalOffset={-screenHeight / 2} style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
           <View style={styles.mainCont}>
           { Platform.OS === 'android' ? (
             <StatusBar barStyle="dark-content" backgroundColor={GlobalStyles.bg_color} animated />
@@ -141,6 +140,9 @@ export default class AccountSetup extends React.Component {
               contentContainerStyle={{
                 justifyContent: 'flex-start',
                 flex: 1,
+              }}
+              onContentSizeChange={() => {
+                this.scrollView.current.scrollToEnd({ animated: true });
               }}
               keyboardShouldPersistTaps="handled"
               showsVerticalScrollIndicator={false}
@@ -277,9 +279,16 @@ export default class AccountSetup extends React.Component {
                 </View>
               </View>
             </ScrollView>
+            {this.state.scroll && Platform.OS === 'ios' ? (
+              <View
+                style={{
+                  width: '100%',
+                  height: Dimensions.get('screen').height * 0.15,
+                }}
+              />
+            ) : null}
 
         </View>
-          </KeyboardAvoidingView>
         </HandleBack>
       </>
     );
